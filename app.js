@@ -10,6 +10,8 @@ let controller = require('./controller')
 if (process.env.NODE_ENV !== 'test') app.use(morgan('dev'))
 app.use(bodyParser.json())
 
+app.get('/', controller.books.getRoot)
+
 app.get('/books', controller.books.getAllBooksController)
 app.get('/books/:id', controller.books.getBookController)
 app.post('/books', controller.books.createBookController)

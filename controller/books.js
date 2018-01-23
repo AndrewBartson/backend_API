@@ -1,5 +1,9 @@
 let model = require('../model')
 
+function getRoot(req, res, next) {
+  res.status(200).send('<h1>BackEnd API - Books and Authors</h1>')
+}
+
 function getAllBooksController(req, res, next) {
   let books = model.books.getAllBooks();
   res.status(200).json(books)
@@ -38,6 +42,7 @@ function deleteBookController(req, res, next) {
 }
 
 module.exports = {
+  getRoot,
   getAllBooksController,
   getBookController,
   createBookController,
